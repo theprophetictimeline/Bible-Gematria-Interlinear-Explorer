@@ -12,9 +12,9 @@ Follow the directions in `Installation.txt` for an example on how to Install thi
 
 # Interlinear Explorer
 
-![Transliteration](https://user-images.githubusercontent.com/86980762/125213313-e8d61400-e27f-11eb-9772-a93b15704344.png)
+Hover over the "**Translit**" header for Hebrew words to get an easy pronunciation:
 
-Hover over the Transliteration header for Hebrew words to get an easy pronunciation.
+![Transliteration](https://user-images.githubusercontent.com/86980762/125213313-e8d61400-e27f-11eb-9772-a93b15704344.png)
 
 ---
 
@@ -24,7 +24,7 @@ View the original Hebrew and Greek of the Bible. Hover over a word for more info
 
 &nbsp;
 
-The following are the capabilities of this program:
+The following are the capabilities of this explorer:
 
 * View the original Hebrew and Greek of the Bible, alongside the 1769 or 1611 KJV
 * Click on Authorized Version footnotes, including Apocrypha verses
