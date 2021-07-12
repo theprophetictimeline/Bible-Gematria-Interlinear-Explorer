@@ -1,0 +1,98 @@
+
+# Install this Flask Project on your Server (or Local computer). "Ubuntu 20.04 Server" is used in this example
+
+# ssh into the root of your server:
+
+ssh root@server_ip_address
+
+sudo adduser sammy
+sudo usermod -aG sudo sammy
+
+su sammy
+
+sudo apt update && sudo apt install -y nginx && sudo apt install -y python3-pip python3-dev python3-setuptools python3-venv build-essential libssl-dev libffi-dev
+
+mkdir /home/sammy/FLASK && cd /home/sammy/FLASK
+
+pip install uwsgi
+
+python3 -m venv myprojectenv
+
+source myprojectenv/bin/activate
+
+pip install uwsgi flask flask_caching dataset
+
+deactivate
+
+nano myproject.py
+
+# Insert the contents of myproject.py
+
+nano wsgi.py
+
+# Insert the contents between the triple quotes
+
+"""
+from myproject import app
+
+if __name__ == "__main__":
+	app.run()
+"""
+
+nano myproject.ini
+
+"""
+[uwsgi]
+module = wsgi:app
+
+master = true
+processes = 5
+
+socket = myproject.sock
+chmod-socket = 660
+vacuum = true
+
+die-on-term = true
+
+logto = /home/sammy/FLASK/logs
+"""
+
+sudo nano /etc/systemd/system/myproject.service
+
+"""
+[Unit]
+Description=uWSGI instance to serve myproject
+After=network.target
+
+[Service]
+User=sammy
+Group=www-data
+WorkingDirectory=/home/sammy/FLASK/
+Environment="PATH=/home/sammy/FLASK/myprojectenv/bin"
+ExecStart=/home/sammy/FLASK/myprojectenv/bin/uwsgi --ini myproject.ini
+
+[Install]
+WantedBy=multi-user.target
+"""
+
+sudo systemctl start myproject
+sudo systemctl enable myproject
+sudo systemctl status myproject
+
+sudo nano /etc/nginx/sites-enabled/default
+
+# By default there is a location block that contains the line "try_files $uri $uri/ =404;"
+
+# After that location block, add this location block:
+
+"""
+	location ~ ^/(explorer|strongs|gematria|english)$ {
+		include uwsgi_params;
+		uwsgi_pass unix:/home/sammy/FLASK/myproject.sock;
+	}
+"""
+
+sudo systemctl restart nginx
+
+# Login as sammy and upload and unzip Complete.db to the FLASK directory
+# Login as root and upload the static and LC_ directory to /var/www/html/
