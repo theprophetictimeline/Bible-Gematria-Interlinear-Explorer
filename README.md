@@ -1,6 +1,6 @@
 # Bible Gematria Explorer Interlinear
 
-![Interlinear Explorer](https://user-images.githubusercontent.com/86980762/125211401-14530180-e274-11eb-9d42-004c61cb3469.png)
+[![Interlinear Explorer](https://user-images.githubusercontent.com/86980762/125211401-14530180-e274-11eb-9d42-004c61cb3469.png)](https://theprophetictimeline.com/explorer?reference=Genesis+1:1)
 
 This is the best Interlinear Explorer released for the Bible.
 
@@ -14,13 +14,13 @@ Follow the directions in `Installation.txt` for an example on how to Install thi
 
 Hover over the "**Translit**" header for Hebrew words to get an easy pronunciation:
 
-![Transliteration](https://user-images.githubusercontent.com/86980762/125213313-e8d61400-e27f-11eb-9772-a93b15704344.png)
+[![Transliteration](https://user-images.githubusercontent.com/86980762/125213313-e8d61400-e27f-11eb-9772-a93b15704344.png)](https://theprophetictimeline.com/explorer?reference=Genesis+4:20)
 
 ---
 
 View the original Hebrew and Greek of the Bible. Hover over a word for more information:
 
-![Interlinear3](https://user-images.githubusercontent.com/86980762/125217552-f6df6100-e28e-11eb-9818-10b041d05f54.png)
+[![Interlinear](https://user-images.githubusercontent.com/86980762/125217552-f6df6100-e28e-11eb-9818-10b041d05f54.png)](https://theprophetictimeline.com/explorer?reference=Matthew+27:29)
 
 &nbsp;
 
