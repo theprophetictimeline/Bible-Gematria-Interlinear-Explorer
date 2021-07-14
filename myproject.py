@@ -852,9 +852,9 @@ def explorer():
 	elif versenum != None:
 		versenum = versenum.strip()
 
-		if versenum == '0' or all(c == '0' for c in versenum): versenum = '1'
+		if versenum == '0' or all(c == '0' for c in versenum): versenum = '0'
 
-		if not versenum.isdigit():
+		if not versenum.isdigit() or versenum == '0':
 			versenum = 1
 
 		versenum = int(versenum)
@@ -877,12 +877,12 @@ def explorer():
 		chapter = chapter.strip()
 		verse = verse.strip()
 
-		try:
-			if book == '0' or all(c == '0' for c in book): book = '1'
-			if chapter == '0' or all(c == '0' for c in chapter): chapter = '1'
-			if verse == '0' or all(c == '0' for c in verse): verse = '1'
+		if book == '0' or all(c == '0' for c in book): book = '0'
+		if chapter == '0' or all(c == '0' for c in chapter): chapter = '0'
+		if verse == '0' or all(c == '0' for c in verse): verse = '0'
 
-			if book.isdigit() and chapter.isdigit() and verse.isdigit():
+		try:
+			if book.isdigit() and chapter.isdigit() and verse.isdigit() and book != '0' and chapter != '0' and verse != '0':
 				book = int(book)
 				chapter = int(chapter)
 				verse = int(verse)
