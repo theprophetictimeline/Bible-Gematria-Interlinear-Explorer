@@ -1052,6 +1052,7 @@ def strongs():
 	if (strongsnumber[:1].upper() != 'H' and strongsnumber[:1].upper() != 'G') or (not strongsnumber[1:].isdigit()): strongsnumber = 'H2442'
 	if (strongsnumber[:1].upper() == 'H' and int(strongsnumber[1:]) > 8674) or (strongsnumber[:1].upper() == 'G' and int(strongsnumber[1:]) > 5624): strongsnumber = 'H2442'
 	strongsnumber = strongsnumber[:1].upper() + strongsnumber[1:].lstrip('0')
+	if strongsnumber == 'H' or strongsnumber == 'G': strongsnumber = 'H2442'
 
 	return strongs_html(strongsnumber)
 
