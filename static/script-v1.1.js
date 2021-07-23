@@ -270,6 +270,30 @@ $(document).ready(function() {
 	var timer;
 	var waited = false;
 
+	$('#Table1_Translit').mouseover(function() {
+
+		timer = setTimeout(function() {
+
+			$('.Table1 .translit').each(function() {
+				$(this).attr('first', encodeURIComponent($(this).html()));
+				$(this).html($(this).attr('info'));
+			});
+
+			waited = true;
+		}, 1700);
+
+	}).mouseleave(function() {
+
+		if (waited) {
+			$('.Table1 .translit').each(function() {
+				$(this).html(decodeURIComponent($(this).attr('first')));
+			});
+		}
+
+		clearTimeout(timer);
+		waited = false;
+	});
+
 	$('#Table2_Translit').mouseover(function() {
 
 		timer = setTimeout(function() {
