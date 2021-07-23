@@ -84,7 +84,7 @@ page_foot = """
 <div class="m_3 clear"></div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="/static/script-v1.0.js"></script>
+	<script src="/static/script-v1.1.js"></script>
 </body>
 </html>"""
 
@@ -354,6 +354,8 @@ def explorer_view(versenum, previous_versenum, next_versenum, cookie, cookie2):
 
 	qere_tag = ''
 
+	Table1_Translit = ''
+
 	Table2_Translit = ''
 
 	Greek_verses = ''
@@ -381,6 +383,7 @@ def explorer_view(versenum, previous_versenum, next_versenum, cookie, cookie2):
 		Original = Original.replace('<pe ', '<span class="item_container"><pe ').replace('</pe>', '</pe></span>')
 		Original = Original.replace('<samekh ', '<span class="item_container"><samekh ').replace('</samekh>', '</samekh></span>')
 
+		Table1_Translit = ' id="Table1_Translit"'
 		Table2_Translit = ' id="Table2_Translit"'
 
 	else:
@@ -608,7 +611,7 @@ def explorer_view(versenum, previous_versenum, next_versenum, cookie, cookie2):
 		</tr>
 		<tr>
 			<th>KJV</th>
-			<th>Strong's #</th>
+			<th""" + Table1_Translit + """>Strong's #</th>
 			<th>""" + Language + """</th>
 			<th>Value</th>
 		</tr>
